@@ -13,3 +13,9 @@ export const createUser = async (req: Request, res: Response) => {
     await userRepository.save(newUser);
     res.json ({message: "User Created", user : JSON.stringify(req.body)});
 }
+
+export const deleteUser = (req: Request, res: Response) => {
+
+    userRepository.delete(req.params.id)
+    res.json({ message: "User deletion" });
+}
