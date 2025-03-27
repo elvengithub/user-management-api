@@ -3,11 +3,6 @@ import { User } from "../entities/user";
 import { Request, Response } from "express";
 
 const userRepository = AppDataSource.getRepository(User);
-export const deleteUser = (req: Request, res: Response) => { 
-    
-    userRepository.delete(req.params.id)
-    res.json({ message: "User deleted" });
-}
 
 export const createUser = async (req: Request, res: Response) => {
     const newUser = await userRepository.create({
